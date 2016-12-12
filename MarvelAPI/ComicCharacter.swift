@@ -9,7 +9,7 @@
 import Foundation
 import SwiftyJSON
 
-class ComicSummary {
+class ComicCharacter {
     
     var resourceURI : String?
     var name : String?

@@ -18,7 +18,8 @@ class Character {
     var resourceURI : String?
     var urls = [String:String]()
     var thumbnails : String?
-    var comics : Comics?
+    var comicsAvailable : Int?
+    var comics = [Comics]()
     var stories : Stories?
     var events : Events?
     var series : Series?
@@ -39,6 +40,9 @@ class Character {
         if let path = json["thumbnail"]["path"].string, let ext = json["thumbnail"]["extension"].string {
             self.thumbnails = path.appending(".").appending(ext)
         }
+        if let available = json["comics"]["available"].int{
+            self.comicsAvailable = available
+        }
         if let urls = json["urls"].array{
             for urlObj in urls{
                 if let type = urlObj["type"].string, let url = urlObj["url"].string{
@@ -46,10 +50,6 @@ class Character {
                 }
             }
         }
-        self.comics = Comics(json: json["comics"])
-        self.stories = Stories(json: json["stories"])
-        self.events = Events(json: json["events"])
-        self.stories = Stories(json: json["stories"])
     }
 }
 

@@ -9,60 +9,44 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MarvelAPI/CharactersTableViewCell.swift"
-            timestampString = "503240383.455866"
+            filePath = "MarvelAPI/Manager/RestManager.swift"
+            timestampString = "503260550.671052"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "22"
-            endingLineNumber = "22"
-            landmarkName = "CharactersTableViewCell"
-            landmarkType = "3">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MarvelAPI/CharactersTableViewCell.swift"
-            timestampString = "503240399.272195"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "21"
-            endingLineNumber = "21"
-            landmarkName = "CharactersTableViewCell"
-            landmarkType = "3">
+            startingLineNumber = "78"
+            endingLineNumber = "78"
+            landmarkName = "getComicsFromCharacter(characterId:offset:response:)"
+            landmarkType = "7">
             <Locations>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "MarvelAPI.CharactersTableViewCell.character.didset : Swift.Optional&lt;MarvelAPI.Character&gt;"
+                  symbolName = "static MarvelAPI.RestManager.(getComicsFromCharacter (characterId : Swift.Int, offset : Swift.Int, response : (Swift.Array&lt;MarvelAPI.Comics&gt;) -&gt; ()) -&gt; ()).(closure #2)"
                   moduleName = "MarvelAPI"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/luisfilipecampani/Desktop/Projects/MarvelAPI/MarvelAPI/CharactersTableViewCell.swift"
-                  timestampString = "503249868.559847"
+                  urlString = "file:///Users/luisfilipecampani/Desktop/Projects/MarvelAPI/MarvelAPI/Manager/RestManager.swift"
+                  timestampString = "503261263.472547"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "21"
-                  endingLineNumber = "21"
-                  offsetFromSymbolStart = "428">
+                  startingLineNumber = "78"
+                  endingLineNumber = "78"
+                  offsetFromSymbolStart = "2340">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "MarvelAPI.CharactersTableViewCell.character.didset : Swift.Optional&lt;MarvelAPI.Character&gt;"
+                  symbolName = "static MarvelAPI.RestManager.(getComicsFromCharacter (characterId : Swift.Int, offset : Swift.Int, response : (Swift.Array&lt;MarvelAPI.Comics&gt;) -&gt; ()) -&gt; ()).(closure #2)"
                   moduleName = "MarvelAPI"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/luisfilipecampani/Desktop/Projects/MarvelAPI/MarvelAPI/CharactersTableViewCell.swift"
-                  timestampString = "503249868.561119"
+                  urlString = "file:///Users/luisfilipecampani/Desktop/Projects/MarvelAPI/MarvelAPI/Manager/RestManager.swift"
+                  timestampString = "503261263.47491"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "21"
-                  endingLineNumber = "21"
-                  offsetFromSymbolStart = "528">
+                  startingLineNumber = "78"
+                  endingLineNumber = "78"
+                  offsetFromSymbolStart = "2384">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -70,16 +54,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MarvelAPI/Extensions.swift"
-            timestampString = "503240808.769379"
+            filePath = "MarvelAPI/ComicsViewController.swift"
+            timestampString = "503263421.257709"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "30"
-            endingLineNumber = "30"
-            landmarkName = "loadImage(_:)"
+            startingLineNumber = "136"
+            endingLineNumber = "136"
+            landmarkName = "scrollViewDidScroll(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

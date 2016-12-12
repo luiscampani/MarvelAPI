@@ -10,25 +10,49 @@ import Foundation
 import SwiftyJSON
 
 class Comics {
-    
-    var available : Int?
-    var returned : Int?
-    var collectionURI : String?
-    var items = [ComicSummary]()
+ 
+    var id : Int?
+    var digitalId : Int?
+    var title : String?
+    var variantDescription : String?
+    var description : String?
+    var format : String?
+    var pageCount : Int?
+    var price : Int?
+    var thumbnail : String?
+    var comicCharacters = [ComicCharacter]()
     
     init(json : JSON){
-        if let collectionURI = json["collectionURI"].string {
-            self.collectionURI = collectionURI
+        if let id = json["id"].int {
+            self.id = id
         }
-        if let available = json["available"].int {
-            self.available = available
+        if let digitalId = json["digitalId"].int {
+            self.digitalId = digitalId
         }
-        if let returned = json["returned"].int {
-            self.returned = returned
+        if let title = json["title"].string {
+            self.title = title
         }
-        if let items = json["items"].array {
-            for item in items {
-                self.items.append(ComicSummary(json: item))
+        if let variantDescription = json["variantDescription"].string {
+            self.variantDescription = variantDescription
+        }
+        if let description = json["description"].string {
+            self.description = description
+        }
+        if let format = json["format"].string {
+            self.format = format
+        }
+        if let pageCount = json["pageCount"].int {
+            self.pageCount = pageCount
+        }
+        if let prices = json["prices"]["price"].int {
+            self.price = prices
+        }
+        if let path = json["thumbnail"]["path"].string, let ext = json["thumbnail"]["extension"].string {
+            self.thumbnail = path.appending(".").appending(ext)
+        }
+        if let characters = json["characters"]["items"].array {
+            for character in characters{
+                comicCharacters.append(ComicCharacter(json: character))
             }
         }
     }

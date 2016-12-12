@@ -97,28 +97,44 @@
         <!--Comics-->
         <scene sceneID="zMo-N7-wRt">
             <objects>
-                <viewController title="Comics" id="JPR-pG-AQf" sceneMemberID="viewController">
+                <viewController title="Comics" id="JPR-pG-AQf" customClass="ComicsViewController" customModule="MarvelAPI" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="91y-v0-mhg"/>
                         <viewControllerLayoutGuide type="bottom" id="eqd-im-iAE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="AhV-ay-Jfl">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0Nm-1d-PHf">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="eoo-Cg-r9l">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="comicsCell" id="eoo-Cg-r9l" customClass="ComicsTableViewCell" customModule="MarvelAPI" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eoo-Cg-r9l" id="nvi-Xz-hHt">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="59"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o4J-eg-wEk">
+                                                    <rect key="frame" x="8" y="8" width="334" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="itemName" destination="o4J-eg-wEk" id="BSf-t6-93H"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="JPR-pG-AQf" id="AR5-9f-crn"/>
+                                    <outlet property="delegate" destination="JPR-pG-AQf" id="Nvc-W5-ZtI"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -131,10 +147,14 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Comics" id="Hed-oq-GuJ"/>
                     <navigationItem key="navigationItem" title="Comics" id="kzV-7T-svt"/>
+                    <connections>
+                        <outlet property="tableView" destination="0Nm-1d-PHf" id="6Gw-15-XoO"/>
+                        <segue destination="nLu-Dj-A6H" kind="show" identifier="comicDetail" id="1Qc-fN-JHA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ffr-lQ-EEs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3496.8000000000002" y="138.98050974512745"/>
+            <point key="canvasLocation" x="3154" y="139"/>
         </scene>
         <!--Info-->
         <scene sceneID="IgZ-lu-jrD">
@@ -187,6 +207,9 @@
                                         <integer key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="comicsTapped:" destination="wY3-me-NAV" eventType="touchUpInside" id="frP-lp-7HC"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ou4-2U-jek">
                                 <rect key="frame" x="192" y="482" width="115" height="50"/>
@@ -260,11 +283,12 @@
                         <outlet property="characterImage" destination="Ff8-UF-2d5" id="xC8-aQ-pjq"/>
                         <outlet property="characterName" destination="DPt-k9-dCi" id="yHP-4s-Yuw"/>
                         <segue destination="P2P-lE-cTi" kind="show" identifier="wiki" id="eGd-iF-zrI"/>
+                        <segue destination="JPR-pG-AQf" kind="show" identifier="comics" id="Zlc-bh-zOg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8qV-vi-Etc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2133.5999999999999" y="138.98050974512745"/>
+            <point key="canvasLocation" x="2134" y="139"/>
         </scene>
         <!--Wiki View Controller-->
         <scene sceneID="L4p-EF-t4d">
@@ -298,6 +322,121 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q1R-re-Hi7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2133.5999999999999" y="931.48425787106453"/>
+        </scene>
+        <!--Comic Details View Controller-->
+        <scene sceneID="nRM-o2-Gjz">
+            <objects>
+                <viewController id="nLu-Dj-A6H" customClass="ComicDetailsViewController" customModule="MarvelAPI" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="go9-ys-q5U"/>
+                        <viewControllerLayoutGuide type="bottom" id="VyP-7y-w8y"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="l9l-1s-8uj">
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="C2c-h5-l1C">
+                                <rect key="frame" x="107" y="20" width="160" height="160"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="160" id="J69-88-7cJ"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nji-dI-CcR">
+                                <rect key="frame" x="33" y="188" width="309" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="fDD-Uw-gRx"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="19"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Description" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rau-Du-298">
+                                <rect key="frame" x="16" y="256" width="343" height="180"/>
+                                <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Characters:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e67-R1-3K4">
+                                <rect key="frame" x="141" y="444" width="93" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="93" id="IBk-xe-Z0p"/>
+                                    <constraint firstAttribute="height" constant="21" id="uec-DK-NdS"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pFx-0l-3Ll">
+                                <rect key="frame" x="16" y="473" width="343" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="h6P-lN-WiQ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hJc-mD-thU">
+                                <rect key="frame" x="104" y="562" width="55" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="55" id="bdP-ym-CBF"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MNd-pm-K3d">
+                                <rect key="frame" x="167" y="562" width="103" height="22.5"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-ThinItalic" family="Helvetica Neue" pointSize="19"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="hJc-mD-thU" secondAttribute="bottom" constant="20" symbolic="YES" id="5jH-BH-SMk"/>
+                            <constraint firstItem="rau-Du-298" firstAttribute="leading" secondItem="l9l-1s-8uj" secondAttribute="leadingMargin" id="6KH-HL-Jew"/>
+                            <constraint firstItem="rau-Du-298" firstAttribute="top" secondItem="nji-dI-CcR" secondAttribute="bottom" constant="8" symbolic="YES" id="Fk6-Qm-Bbc"/>
+                            <constraint firstItem="C2c-h5-l1C" firstAttribute="leading" secondItem="l9l-1s-8uj" secondAttribute="leadingMargin" constant="91" id="Fto-Nm-H4n"/>
+                            <constraint firstItem="hJc-mD-thU" firstAttribute="top" secondItem="MNd-pm-K3d" secondAttribute="top" id="Gfm-ji-Vfz"/>
+                            <constraint firstItem="hJc-mD-thU" firstAttribute="leading" secondItem="l9l-1s-8uj" secondAttribute="leadingMargin" constant="88" id="HV0-ST-s4d"/>
+                            <constraint firstItem="e67-R1-3K4" firstAttribute="centerX" secondItem="pFx-0l-3Ll" secondAttribute="centerX" id="JhX-L3-BPx"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="MNd-pm-K3d" secondAttribute="trailing" constant="89" id="SrP-CE-qzf"/>
+                            <constraint firstItem="nji-dI-CcR" firstAttribute="top" secondItem="C2c-h5-l1C" secondAttribute="bottom" constant="8" symbolic="YES" id="XKG-X8-yIG"/>
+                            <constraint firstItem="nji-dI-CcR" firstAttribute="leading" secondItem="l9l-1s-8uj" secondAttribute="leadingMargin" constant="17" id="ciD-1a-ACE"/>
+                            <constraint firstItem="pFx-0l-3Ll" firstAttribute="top" secondItem="e67-R1-3K4" secondAttribute="bottom" constant="8" symbolic="YES" id="gZs-07-yA8"/>
+                            <constraint firstItem="e67-R1-3K4" firstAttribute="top" secondItem="rau-Du-298" secondAttribute="bottom" constant="8" symbolic="YES" id="k8c-Gc-NjO"/>
+                            <constraint firstItem="MNd-pm-K3d" firstAttribute="leading" secondItem="hJc-mD-thU" secondAttribute="trailing" constant="8" symbolic="YES" id="ncQ-sI-oFy"/>
+                            <constraint firstItem="rau-Du-298" firstAttribute="leading" secondItem="pFx-0l-3Ll" secondAttribute="leading" id="nyX-8B-PbF"/>
+                            <constraint firstItem="C2c-h5-l1C" firstAttribute="centerX" secondItem="nji-dI-CcR" secondAttribute="centerX" id="pYH-9d-Wcd"/>
+                            <constraint firstItem="hJc-mD-thU" firstAttribute="top" secondItem="pFx-0l-3Ll" secondAttribute="bottom" constant="29" id="vH3-4z-OIL"/>
+                            <constraint firstItem="nji-dI-CcR" firstAttribute="centerX" secondItem="rau-Du-298" secondAttribute="centerX" id="w34-zn-zjD"/>
+                            <constraint firstItem="rau-Du-298" firstAttribute="trailing" secondItem="l9l-1s-8uj" secondAttribute="trailingMargin" id="wpJ-Mg-jj4"/>
+                            <constraint firstItem="rau-Du-298" firstAttribute="trailing" secondItem="pFx-0l-3Ll" secondAttribute="trailing" id="zFm-yB-A8W"/>
+                            <constraint firstItem="C2c-h5-l1C" firstAttribute="top" secondItem="l9l-1s-8uj" secondAttribute="top" constant="20" symbolic="YES" id="zhG-aX-TXk"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="comicCharacters" destination="pFx-0l-3Ll" id="QKg-2u-UNS"/>
+                        <outlet property="comicDescription" destination="rau-Du-298" id="ICT-Of-0gX"/>
+                        <outlet property="comicImage" destination="C2c-h5-l1C" id="El1-n4-JY5"/>
+                        <outlet property="comicName" destination="nji-dI-CcR" id="RgY-qp-v9D"/>
+                        <outlet property="comicPrice" destination="MNd-pm-K3d" id="cmo-2s-xqv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="b2Z-4J-p7d" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4133.6000000000004" y="138.98050974512745"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="fTt-7E-REf">

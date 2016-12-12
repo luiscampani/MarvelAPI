@@ -44,14 +44,24 @@ class DetailsViewController: UIViewController {
         performSegue(withIdentifier: "wiki", sender: nil)
     }
     
+    @IBAction func comicsTapped(_ sender: Any) {
+        performSegue(withIdentifier: "comics", sender: nil)
+    }
+    
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "wiki"{
             let vc = segue.destination as! WikiViewController
             if let url = character?.urls["wiki"]{
                 vc.url = url
             }
+        } else if segue.identifier == "comics" {
+            let vc = segue.destination as! ComicsViewController
+            if let character = self.character {
+                vc.character = character
+            }
         }
-        
+    }
         /*
          // MARK: - Navigation
          
@@ -61,6 +71,4 @@ class DetailsViewController: UIViewController {
          // Pass the selected object to the new view controller.
          }
          */
-        
-    }
 }

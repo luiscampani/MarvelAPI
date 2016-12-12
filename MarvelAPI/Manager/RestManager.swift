@@ -52,6 +52,36 @@ class RestManager {
         }
     }
     
+    static func getComicsFromCharacter(characterId : Int , offset : Int, response: @escaping ([Comics])->()){
+        var getCaractersComicsUrl = baseUrl.appending("/characters")
+        getCaractersComicsUrl.append("/")
+        getCaractersComicsUrl.append("\(characterId)")
+        getCaractersComicsUrl.append("/comics")
+        
+        let timestamp = Date().description
+        
+        let stringToHash = timestamp.appending(privatekey).appending(publickey)
+        
+        let hashData = MD5(string: stringToHash)
+        let hash : String =  hashData!.map { String(format: "%02hhx", $0) }.joined()
+        
+        let parameters = ["apikey":publickey,"ts":timestamp,"hash":hash,"offset":offset,"limit":100,"orderBy":"title"] as [String : Any]
+        
+        manager.request(getCaractersComicsUrl, method: .get, parameters: parameters).responseJSON { (request) in
+            switch request.result {
+            case .success(let value):
+                let jsons = JSON(value)
+                var comics = [Comics]()
+                for json in jsons["data"]["results"].array! {
+                    comics.append(Comics(json: json))
+                }
+                response(comics)
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
     static func MD5(string: String) -> Data? {
         guard let messageData = string.data(using:String.Encoding.utf8) else { return nil }
         var digestData = Data(count: Int(CC_MD5_DIGEST_LENGTH))

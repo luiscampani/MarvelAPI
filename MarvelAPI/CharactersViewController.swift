@@ -17,9 +17,6 @@ class CharactersViewController: UIViewController {
     
     var isFetching = false
     
-    var currentOffset = 0
-    
-    
     var footerView : UIView?
     
     override func viewDidLoad() {
