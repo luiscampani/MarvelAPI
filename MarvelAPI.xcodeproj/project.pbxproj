@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		2A8E2BA4E74A31AD44FC15CB /* Pods_MarvelAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3616595146B95F1F4B761E08 /* Pods_MarvelAPI.framework */; };
+		5B0093591DFEEAF900C5A562 /* ComicsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0093581DFEEAF900C5A562 /* ComicsViewController.swift */; };
+		5B00935B1DFEF37200C5A562 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B00935A1DFEF37200C5A562 /* DetailsViewController.swift */; };
+		5B00935D1DFEF98600C5A562 /* WikiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B00935C1DFEF98600C5A562 /* WikiViewController.swift */; };
 		5B00C2541DFECE930068A8B2 /* CharactersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B00C2531DFECE930068A8B2 /* CharactersTableViewCell.swift */; };
 		5BB9EBEF1DFEC53900039124 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB9EBEE1DFEC53900039124 /* AppDelegate.swift */; };
 		5BB9EBF11DFEC53900039124 /* CharactersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB9EBF01DFEC53900039124 /* CharactersViewController.swift */; };
@@ -29,6 +32,9 @@
 
 /* Begin PBXFileReference section */
 		3616595146B95F1F4B761E08 /* Pods_MarvelAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MarvelAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B0093581DFEEAF900C5A562 /* ComicsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComicsViewController.swift; sourceTree = "<group>"; };
+		5B00935A1DFEF37200C5A562 /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		5B00935C1DFEF98600C5A562 /* WikiViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WikiViewController.swift; sourceTree = "<group>"; };
 		5B00C2531DFECE930068A8B2 /* CharactersTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharactersTableViewCell.swift; sourceTree = "<group>"; };
 		5B11BCC31DFEC8DF0041A953 /* MarvelAPI-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MarvelAPI-Bridging-Header.h"; sourceTree = "<group>"; };
 		5BB9EBEB1DFEC53900039124 /* MarvelAPI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarvelAPI.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -137,6 +143,9 @@
 			children = (
 				5BB9EBF01DFEC53900039124 /* CharactersViewController.swift */,
 				5B00C2531DFECE930068A8B2 /* CharactersTableViewCell.swift */,
+				5B0093581DFEEAF900C5A562 /* ComicsViewController.swift */,
+				5B00935A1DFEF37200C5A562 /* DetailsViewController.swift */,
+				5B00935C1DFEF98600C5A562 /* WikiViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -303,6 +312,7 @@
 				5BB9EC0F1DFEC60F00039124 /* Stories.swift in Sources */,
 				5BB9EC011DFEC57800039124 /* RestManager.swift in Sources */,
 				5BB9EBF11DFEC53900039124 /* CharactersViewController.swift in Sources */,
+				5B00935D1DFEF98600C5A562 /* WikiViewController.swift in Sources */,
 				5BB9EC111DFEC62A00039124 /* StorySummary.swift in Sources */,
 				5B00C2541DFECE930068A8B2 /* CharactersTableViewCell.swift in Sources */,
 				5BB9EC091DFEC5DD00039124 /* Comics.swift in Sources */,
@@ -310,7 +320,9 @@
 				5BB9EBEF1DFEC53900039124 /* AppDelegate.swift in Sources */,
 				5BB9EC1C1DFEC74500039124 /* Extensions.swift in Sources */,
 				5BB9EC071DFEC5BD00039124 /* Character.swift in Sources */,
+				5B00935B1DFEF37200C5A562 /* DetailsViewController.swift in Sources */,
 				5BB9EC0D1DFEC60300039124 /* Series.swift in Sources */,
+				5B0093591DFEEAF900C5A562 /* ComicsViewController.swift in Sources */,
 				5BB9EC181DFEC65000039124 /* ComicSummary.swift in Sources */,
 				5BB9EC131DFEC63200039124 /* SeriesSummary.swift in Sources */,
 			);

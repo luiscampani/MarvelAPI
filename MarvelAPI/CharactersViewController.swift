@@ -91,6 +91,13 @@ class CharactersViewController: UIViewController {
             constant: 0.0
             ).isActive = true
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "characterDetail" {
+            let vc = segue.destination as! DetailsViewController
+            vc.character = sender as! Character?
+        }
+    }
 }
 
 extension CharactersViewController : UITableViewDataSource {
@@ -112,6 +119,7 @@ extension CharactersViewController : UITableViewDataSource {
 extension CharactersViewController : UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "characterDetail", sender: characters[indexPath.row])
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
