@@ -19,10 +19,9 @@ class Character {
     var urls = [String:String]()
     var thumbnails : String?
     var comicsAvailable : Int?
+    var seriesAvailable : Int?
     var comics = [Comics]()
-    var stories : Stories?
-    var events : Events?
-    var series : Series?
+    var series = [Series]()
     
     init(json : JSON){
         if let id = json["id"].int {
@@ -42,6 +41,9 @@ class Character {
         }
         if let available = json["comics"]["available"].int{
             self.comicsAvailable = available
+        }
+        if let available = json["series"]["available"].int{
+            self.seriesAvailable = available
         }
         if let urls = json["urls"].array{
             for urlObj in urls{

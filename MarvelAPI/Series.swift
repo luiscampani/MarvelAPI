@@ -11,26 +11,43 @@ import SwiftyJSON
 
 class Series {
     
-    var available : Int?
-    var returned : Int?
-    var collectionURI : String?
-    var items = [SeriesSummary]()
+    var id : Int?
+    var title : String?
+    var rating : String?
+    var description : String?
+    var startYear : Int?
+    var endYear : Int?
+    var thumbnail : String?
+    var seriesCreators = [SerieCreator]()
     
     init(json : JSON){
-        if let collectionURI = json["collectionURI"].string {
-            self.collectionURI = collectionURI
+        if let id = json["id"].int {
+            self.id = id
         }
-        if let available = json["available"].int {
-            self.available = available
+        if let title = json["title"].string {
+            self.title = title
         }
-        if let returned = json["returned"].int {
-            self.returned = returned
+        if let rating = json["rating"].string {
+            self.rating = rating
         }
-        if let items = json["items"].array {
-            for item in items {
-                self.items.append(SeriesSummary(json: item))
+        if let description = json["description"].string {
+            self.description = description
+        }
+        if let startYear = json["startYear"].int {
+            self.startYear = startYear
+        }
+        if let endYear = json["endYear"].int {
+            self.endYear = endYear
+        }
+        if let path = json["thumbnail"]["path"].string, let ext = json["thumbnail"]["extension"].string {
+            self.thumbnail = path.appending(".").appending(ext)
+        }
+        if let series = json["creators"]["items"].array {
+            for serie in series{
+                seriesCreators.append(SerieCreator(json: serie))
             }
         }
     }
+
 }
 

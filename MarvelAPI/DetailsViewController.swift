@@ -31,8 +31,6 @@ class DetailsViewController: UIViewController {
                 self.characterDescription.text = "No description avaliable"
             }
         }
-        
-        // Do any additional setup after loading the view.
     }
     
     override func didReceiveMemoryWarning() {
@@ -48,6 +46,9 @@ class DetailsViewController: UIViewController {
         performSegue(withIdentifier: "comics", sender: nil)
     }
     
+    @IBAction func seriesTapped(_ sender: Any) {
+        performSegue(withIdentifier: "series", sender: nil)
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "wiki"{
@@ -60,15 +61,11 @@ class DetailsViewController: UIViewController {
             if let character = self.character {
                 vc.character = character
             }
+        } else if segue.identifier == "series" {
+            let vc = segue.destination as! SeriesViewController
+            if let character = self.character {
+                vc.character = character
+            }
         }
     }
-        /*
-         // MARK: - Navigation
-         
-         // In a storyboard-based application, you will often want to do a little preparation before navigation
-         override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-         // Get the new view controller using segue.destinationViewController.
-         // Pass the selected object to the new view controller.
-         }
-         */
 }
