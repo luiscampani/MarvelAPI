@@ -1,19 +1,21 @@
 # MarvelAPI
-Para executar o projeto, é necessário possuir o CocoaPods instalado.
+App criado em menos de 24h utilizando a [API pública da Marvel](http://developer.marvel.com/)
 
-# Instalando CocoaPods
+Caso ocorra algum problema na execução do projeto, seguir os passos abaixo
+
+### 1 - Instalando CocoaPods
 Digitar o seguinte comando no terminal
 ```bash
 $ sudo gem install cocoapods
 ```
  
-# Instalando as dependências do projeto
-Ir até a pasta em que se encontra o projeto e digitar
+### 2 - Instalando as dependências do projeto
+Ainda no termianl, ir até o diretório em que se encontra o projeto e digitar
 ```bash
 $ pod install
 ```
 
-# Executando o projeto
+### 3 - Executando o projeto
 Abrir o arquivo com extensão `.xcworkspace`, ao invés do `.xcodeproj`
 
 
