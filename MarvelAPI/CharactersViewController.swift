@@ -39,6 +39,9 @@ class CharactersViewController: UIViewController {
             self.characters = characters
             self.tableView.reloadData()
             self.isFetching = false
+            if self.characters.count == 0 {
+                self.initFooterForNoResults()
+            }
             SVProgressHUD.dismiss()
         }
     }
@@ -88,6 +91,37 @@ class CharactersViewController: UIViewController {
             multiplier: 1.0, 
             constant: 0.0
             ).isActive = true
+    }
+    
+    func initFooterForNoResults(){
+        let footerWithNoResults = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 80))
+        let text = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 80))
+        text.attributedText = NSAttributedString(string: "Couldn't find a character", attributes: [ NSFontAttributeName: UIFont(name: "HelveticaNeue-Medium", size: 17.0)! ])
+        text.numberOfLines = 0
+        text.textAlignment = .center
+        footerWithNoResults.addSubview(text)
+        
+        NSLayoutConstraint(
+            item: text,
+            attribute: .centerX,
+            relatedBy: .equal,
+            toItem: footerWithNoResults,
+            attribute: .centerX,
+            multiplier: 1.0,
+            constant: 0.0
+            ).isActive = true
+        
+        NSLayoutConstraint(
+            item: text,
+            attribute: .centerY,
+            relatedBy: .equal,
+            toItem: footerWithNoResults,
+            attribute: .centerY,
+            multiplier: 1.0,
+            constant: 0.0
+            ).isActive = true
+        
+        self.tableView.tableFooterView = footerWithNoResults
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

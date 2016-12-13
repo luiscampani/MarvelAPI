@@ -56,14 +56,14 @@ class ComicsViewController: UIViewController {
                 view.stopAnimating()
                 SVProgressHUD.dismiss()
                 if self.comics.count == 0 {
-                    
+                    self.initFooterForNoResults()
                 }
             })
         }
     }
     
     func initFooterView(){
-        footerView = UIView(frame: CGRect(x: 0, y: 0, width: 320, height: 40))
+        footerView = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 40))
         
         let activIndicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
         
@@ -94,6 +94,37 @@ class ComicsViewController: UIViewController {
             multiplier: 1.0,
             constant: 0.0
             ).isActive = true
+    }
+    
+    func initFooterForNoResults(){
+        let footerWithNoResults = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 80))
+        let text = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 80))
+        text.attributedText = NSAttributedString(string: "This character does not have a comic", attributes: [ NSFontAttributeName: UIFont(name: "HelveticaNeue-Medium", size: 17.0)! ])
+        text.numberOfLines = 0
+        text.textAlignment = .center
+        footerWithNoResults.addSubview(text)
+        
+        NSLayoutConstraint(
+            item: text,
+            attribute: .centerX,
+            relatedBy: .equal,
+            toItem: footerWithNoResults,
+            attribute: .centerX,
+            multiplier: 1.0,
+            constant: 0.0
+            ).isActive = true
+        
+        NSLayoutConstraint(
+            item: text,
+            attribute: .centerY,
+            relatedBy: .equal,
+            toItem: footerWithNoResults,
+            attribute: .centerY,
+            multiplier: 1.0,
+            constant: 0.0
+            ).isActive = true
+        
+        self.tableView.tableFooterView = footerWithNoResults
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

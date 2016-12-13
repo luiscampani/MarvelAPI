@@ -57,7 +57,7 @@ class SeriesViewController: UIViewController {
                 view.stopAnimating()
                 SVProgressHUD.dismiss()
                 if self.series.count == 0 {
-                    
+                    self.initFooterForNoResults()
                 }
             })
         }
@@ -95,6 +95,39 @@ class SeriesViewController: UIViewController {
             multiplier: 1.0,
             constant: 0.0
             ).isActive = true
+    }
+    
+    func initFooterForNoResults(){
+        let footerWithNoResults = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 80))
+        let text = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 60))
+        text.numberOfLines = 0
+        text.textAlignment = .center
+        text.attributedText = NSAttributedString(string: "This character does not have a series", attributes: [ NSFontAttributeName: UIFont(name: "HelveticaNeue-Medium", size: 17.0)! ])
+            
+        
+        footerWithNoResults.addSubview(text)
+        
+        NSLayoutConstraint(
+            item: text,
+            attribute: .centerX,
+            relatedBy: .equal,
+            toItem: footerWithNoResults,
+            attribute: .centerX,
+            multiplier: 1.0,
+            constant: 0.0
+            ).isActive = true
+        
+        NSLayoutConstraint(
+            item: text,
+            attribute: .centerY,
+            relatedBy: .equal,
+            toItem: footerWithNoResults,
+            attribute: .centerY,
+            multiplier: 1.0,
+            constant: 0.0
+            ).isActive = true
+        
+        self.tableView.tableFooterView = footerWithNoResults
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
