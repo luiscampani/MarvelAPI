@@ -22,7 +22,6 @@ class ComicDetailsViewController: UIViewController {
         super.viewDidLoad()
         if let comic = self.comic {
             if let thumbnail = comic.thumbnail {
-                print(thumbnail)
                 self.comicImage.loadImage(thumbnail)
             }
             self.comicName.text = comic.title

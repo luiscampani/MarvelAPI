@@ -24,7 +24,6 @@ class SerieDetailsViewController: UIViewController {
         super.viewDidLoad()
         if let series = self.series {
             if let thumbnail = series.thumbnail {
-                print(thumbnail)
                 self.seriesImage.loadImage(thumbnail)
             }
             self.seriesName.text = series.title
