@@ -4,13 +4,13 @@ App criado em menos de 24h utilizando a [API pública da Marvel](http://develope
 Caso ocorra algum problema na execução do projeto, seguir os passos abaixo
 
 ### 1 - Instalando CocoaPods
-Digitar o seguinte comando no terminal
+Digitar o seguinte comando no terminal:
 ```bash
 $ sudo gem install cocoapods
 ```
  
 ### 2 - Instalando as dependências do projeto
-Ainda no termianl, ir até o diretório em que se encontra o projeto e digitar
+Ainda no terminal, ir até o diretório em que se encontra o projeto e digitar:
 ```bash
 $ pod install
 ```
