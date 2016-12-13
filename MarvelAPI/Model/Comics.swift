@@ -18,7 +18,7 @@ class Comics {
     var description : String?
     var format : String?
     var pageCount : Int?
-    var price : Int?
+    var prices = [String:Float]()
     var thumbnail : String?
     var comicCharacters = [ComicCharacter]()
     
@@ -44,8 +44,12 @@ class Comics {
         if let pageCount = json["pageCount"].int {
             self.pageCount = pageCount
         }
-        if let prices = json["prices"]["price"].int {
-            self.price = prices
+        if let prices = json["prices"].array{
+            for priceObj in prices{
+                if let type = priceObj["type"].string, let price = priceObj["price"].float{
+                    self.prices[type] = price
+                }
+            }
         }
         if let path = json["thumbnail"]["path"].string, let ext = json["thumbnail"]["extension"].string {
             self.thumbnail = path.appending(".").appending(ext)

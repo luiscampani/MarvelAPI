@@ -41,8 +41,12 @@ class ComicDetailsViewController: UIViewController {
                     self.comicCharacters.text = self.comicCharacters.text?.appending("  \(name)")
                 }
             }
-            if comic.price != nil {
-                self.comicPrice.text = "\(comic.price)"
+            if comic.prices.count != 0 {
+                if let printPrice = comic.prices["printPrice"] {
+                    self.comicPrice.text = "$\(printPrice)"
+                } else if let digitalPrice = comic.prices["digitalPrice"] {
+                    self.comicPrice.text = "$\(digitalPrice)"
+                }
             } else {
                 self.comicPrice.text = "Not available"
             }

@@ -6,54 +6,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MarvelAPI/Manager/RestManager.swift"
-            timestampString = "503260550.671052"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "78"
-            endingLineNumber = "78"
-            landmarkName = "getComicsFromCharacter(characterId:offset:response:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "static MarvelAPI.RestManager.(getComicsFromCharacter (characterId : Swift.Int, offset : Swift.Int, response : (Swift.Array&lt;MarvelAPI.Comics&gt;) -&gt; ()) -&gt; ()).(closure #2)"
-                  moduleName = "MarvelAPI"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/luisfilipecampani/Desktop/Projects/MarvelAPI/MarvelAPI/Manager/RestManager.swift"
-                  timestampString = "503285175.975974"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "78"
-                  endingLineNumber = "78"
-                  offsetFromSymbolStart = "2340">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "static MarvelAPI.RestManager.(getComicsFromCharacter (characterId : Swift.Int, offset : Swift.Int, response : (Swift.Array&lt;MarvelAPI.Comics&gt;) -&gt; ()) -&gt; ()).(closure #2)"
-                  moduleName = "MarvelAPI"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/luisfilipecampani/Desktop/Projects/MarvelAPI/MarvelAPI/Manager/RestManager.swift"
-                  timestampString = "503285175.977195"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "78"
-                  endingLineNumber = "78"
-                  offsetFromSymbolStart = "2384">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
