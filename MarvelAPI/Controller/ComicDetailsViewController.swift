@@ -17,57 +17,52 @@ class ComicDetailsViewController: UIViewController {
     @IBOutlet weak var comicPrice: UILabel!
     
     var comic : Comics?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let comic = self.comic {
-            if let thumbnail = comic.thumbnail {
-                self.comicImage.loadImage(thumbnail)
-            }
-            self.comicName.text = comic.title
-            if let description = comic.description {
-                if description != "" {
-                    self.comicDescription.text = description
-                }
-            } else if let variantDescription = comic.variantDescription {
-                if variantDescription != "" {
-                    self.comicDescription.text = variantDescription
-                }
-            } else {
-                self.comicDescription.text = "No description available"
-            }
-            for character in comic.comicCharacters {
-                if let name = character.name {
-                    self.comicCharacters.text = self.comicCharacters.text?.appending("  \(name)")
-                }
-            }
-            if comic.prices.count != 0 {
-                if let printPrice = comic.prices["printPrice"] {
-                    self.comicPrice.text = "$\(printPrice)"
-                } else if let digitalPrice = comic.prices["digitalPrice"] {
-                    self.comicPrice.text = "$\(digitalPrice)"
-                }
-            } else {
-                self.comicPrice.text = "Not available"
-            }
-        }
+        
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    private func setupComic() {
+        guard let comic = self.comic else { return }
+        
+        comicImage.loadImage(comic.thumbnail)
+        comicName.text = comic.title
+        comicDescription.text = getComicDescription(comic)
+        
+        for character in comic.comicCharacters {
+            let name = character.name
+            self.comicCharacters.text = self.comicCharacters.text?.appending("  \(name)")
+        }
+        
+        comicPrice.text = getComicPrice(comic)
     }
-    */
-
+    
+    private func getComicDescription(_ comic: Comics) -> String {
+        if comic.description.isEmpty {
+            return comic.description
+        }
+        else if comic.variantDescription.isEmpty {
+            return  comic.variantDescription
+        }
+        return "No description available"
+    }
+    
+    private func getComicPrice(_ comic: Comics) -> String {
+        if comic.prices.count != 0 {
+            if let printPrice = comic.prices["printPrice"] {
+                return "$\(printPrice)"
+            } else if let digitalPrice = comic.prices["digitalPrice"] {
+                return "$\(digitalPrice)"
+            }
+        }
+        
+        return "Not available"
+    }
 }

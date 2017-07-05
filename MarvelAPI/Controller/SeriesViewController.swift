@@ -13,18 +13,18 @@ class SeriesViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var character : Character?{
-        didSet{
+    var character : Character? {
+        didSet {
             if let character = self.character {
                 if character.series.count > 0 {
-                    self.series = character.series
+                    series = character.series
                 } else {
-                    self.loadAdditionalSeries(forCharacterId: character.id!, offset: 0)
+                    loadAdditionalSeries(forCharacterId: character.id, offset: 0)
                 }
             }
         }
     }
-
+    
     var series = [Series]()
     
     var isFetching = false
@@ -36,7 +36,7 @@ class SeriesViewController: UIViewController {
         self.tableView.tableFooterView = UIView()
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         
@@ -45,7 +45,7 @@ class SeriesViewController: UIViewController {
     
     func loadAdditionalSeries(forCharacterId id : Int, offset : Int){
         if !isFetching {
-            self.isFetching = true
+            isFetching = true
             SVProgressHUD.show(withStatus: "Fetching Series...")
             RestManager.getSeriesFromCharacter(characterId: id, offset: offset, response: { (series) in
                 for serie in series {
@@ -63,7 +63,7 @@ class SeriesViewController: UIViewController {
         }
     }
     
-    func initFooterView(){
+    func initFooterView() {
         footerView = UIView(frame: CGRect(x: 0, y: 0, width: 320, height: 40))
         
         let activIndicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
@@ -97,13 +97,13 @@ class SeriesViewController: UIViewController {
             ).isActive = true
     }
     
-    func initFooterForNoResults(){
+    func initFooterForNoResults() {
         let footerWithNoResults = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 80))
         let text = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 60))
         text.numberOfLines = 0
         text.textAlignment = .center
         text.attributedText = NSAttributedString(string: "This character does not have a series", attributes: [ NSFontAttributeName: UIFont(name: "HelveticaNeue-Medium", size: 17.0)! ])
-            
+        
         
         footerWithNoResults.addSubview(text)
         
@@ -136,16 +136,6 @@ class SeriesViewController: UIViewController {
             vc.series = sender as! Series?
         }
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 }
 
 extension SeriesViewController : UITableViewDataSource{
@@ -171,9 +161,9 @@ extension SeriesViewController : UITableViewDelegate {
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if let available = self.character?.seriesAvailable{
-            if !isFetching && available > self.series.count{
-                if (self.tableView.contentOffset.y - self.tableView.contentInset.bottom >= self.tableView.contentSize.height - self.tableView.bounds.size.height){
+        if let available = self.character?.seriesAvailable {
+            if !isFetching && available > self.series.count {
+                if (self.tableView.contentOffset.y - self.tableView.contentInset.bottom >= self.tableView.contentSize.height - self.tableView.bounds.size.height) {
                     if let id = self.character?.id {
                         self.tableView.tableFooterView = footerView
                         let view = footerView?.viewWithTag(10) as! UIActivityIndicatorView

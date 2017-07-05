@@ -31,9 +31,23 @@
 		5BDF28DB1DFFB353008EE360 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDF28DA1DFFB353008EE360 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		5BAA4A521E41576100388D24 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		3616595146B95F1F4B761E08 /* Pods_MarvelAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MarvelAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B11BCC31DFEC8DF0041A953 /* MarvelAPI-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MarvelAPI-Bridging-Header.h"; sourceTree = "<group>"; };
+		5BAA4A3D1E41576100388D24 /* IntentsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IntentsUI.framework; path = System/Library/Frameworks/IntentsUI.framework; sourceTree = SDKROOT; };
 		5BB9EBEB1DFEC53900039124 /* MarvelAPI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarvelAPI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BB9EBEE1DFEC53900039124 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5BB9EBF31DFEC53900039124 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -173,6 +187,7 @@
 			isa = PBXGroup;
 			children = (
 				3616595146B95F1F4B761E08 /* Pods_MarvelAPI.framework */,
+				5BAA4A3D1E41576100388D24 /* IntentsUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -199,6 +214,7 @@
 				5BB9EBE91DFEC53900039124 /* Resources */,
 				D580312C371ECBD990AFE370 /* [CP] Embed Pods Frameworks */,
 				EF2154088A16E4AE83500270 /* [CP] Copy Pods Resources */,
+				5BAA4A521E41576100388D24 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);

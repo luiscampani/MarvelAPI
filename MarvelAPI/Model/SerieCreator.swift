@@ -11,22 +11,14 @@ import SwiftyJSON
 
 class SerieCreator {
     
-    var resourceURI : [String]?
-    var name : String?
-    var role : String?
+    let resourceURI: [String]
+    let name: String
+    let role: String
     
     init(json : JSON){
-        if let resources = json["resourceURI"].array {
-            
-            for resource in resources {
-                self.resourceURI?.append(resource.string!)
-            }
-        }
-        if let name = json["name"].string {
-            self.name = name
-        }
-        if let role = json["role"].string {
-            self.role = role
-        }
+        self.resourceURI = json["resourceURI"].arrayValue.map { $0.stringValue }
+        self.name = json["name"].stringValue
+        self.role = json["role"].stringValue
+        
     }
 }
