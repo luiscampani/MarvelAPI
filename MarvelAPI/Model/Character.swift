@@ -11,47 +11,36 @@ import SwiftyJSON
 
 class Character {
     
-    var id : Int?
-    var name : String?
-    var description : String?
+    let id : Int
+    var name : String
+    var description : String
     var modified : Date?
-    var resourceURI : String?
+    var resourceURI : String
     var urls = [String:String]()
-    var thumbnails : String?
-    var comicsAvailable : Int?
-    var seriesAvailable : Int?
+    let thumbnails : String
+    let comicsAvailable : Int
+    let seriesAvailable : Int
     var comics = [Comics]()
     var series = [Series]()
     
     init(json : JSON){
-        if let id = json["id"].int {
-            self.id = id
-        }
-        if let name = json["name"].string {
-            self.name = name
-        }
-        if let description = json["description"].string {
-            self.description = description
-        }
-        if let resource = json["resourceURI"].string {
-            self.resourceURI = resource
-        }
-        if let path = json["thumbnail"]["path"].string, let ext = json["thumbnail"]["extension"].string {
-            self.thumbnails = path.appending(".").appending(ext)
-        }
-        if let available = json["comics"]["available"].int{
-            self.comicsAvailable = available
-        }
-        if let available = json["series"]["available"].int{
-            self.seriesAvailable = available
-        }
-        if let urls = json["urls"].array{
-            for urlObj in urls{
-                if let type = urlObj["type"].string, let url = urlObj["url"].string{
-                    self.urls[type] = url
-                }
-            }
+        self.id = json["id"].intValue
+        self.name = json["name"].stringValue
+        self.description = json["description"].stringValue
+        self.resourceURI = json["resourceURI"].stringValue
+        
+        let path = json["thumbnail"]["path"].stringValue
+        let ext = json["thumbnail"]["extension"].stringValue
+        self.thumbnails = path.appending(".").appending(ext)
+        
+        self.comicsAvailable = json["comics"]["available"].intValue
+        self.seriesAvailable = json["series"]["available"].intValue
+        
+        for urlObj in json["urls"].arrayValue {
+            let type = urlObj["type"].stringValue
+            let url = urlObj["url"].stringValue
+            self.urls[type] = url
+            
         }
     }
 }
-

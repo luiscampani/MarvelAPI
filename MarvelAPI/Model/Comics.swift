@@ -10,54 +10,37 @@ import Foundation
 import SwiftyJSON
 
 class Comics {
- 
-    var id : Int?
-    var digitalId : Int?
-    var title : String?
-    var variantDescription : String?
-    var description : String?
-    var format : String?
-    var pageCount : Int?
-    var prices = [String:Float]()
-    var thumbnail : String?
-    var comicCharacters = [ComicCharacter]()
     
-    init(json : JSON){
-        if let id = json["id"].int {
-            self.id = id
+    let id : Int
+    let digitalId : Int
+    let title : String
+    let variantDescription : String
+    let description : String
+    let format : String
+    let pageCount : Int
+    var prices = [String:Float]()
+    let thumbnail : String
+    let comicCharacters: [ComicCharacter]
+    
+    init(json : JSON) {
+        self.id = json["id"].intValue
+        self.digitalId = json["digitalId"].intValue
+        self.title = json["title"].stringValue
+        self.variantDescription = json["variantDescription"].stringValue
+        self.description = json["description"].stringValue
+        self.format = json["format"].stringValue
+        self.pageCount = json["pageCount"].intValue
+        
+        for priceObj in json["prices"].arrayValue {
+            let type = priceObj["type"].stringValue
+            let price = priceObj["price"].floatValue
+            self.prices[type] = price
         }
-        if let digitalId = json["digitalId"].int {
-            self.digitalId = digitalId
-        }
-        if let title = json["title"].string {
-            self.title = title
-        }
-        if let variantDescription = json["variantDescription"].string {
-            self.variantDescription = variantDescription
-        }
-        if let description = json["description"].string {
-            self.description = description
-        }
-        if let format = json["format"].string {
-            self.format = format
-        }
-        if let pageCount = json["pageCount"].int {
-            self.pageCount = pageCount
-        }
-        if let prices = json["prices"].array{
-            for priceObj in prices{
-                if let type = priceObj["type"].string, let price = priceObj["price"].float{
-                    self.prices[type] = price
-                }
-            }
-        }
-        if let path = json["thumbnail"]["path"].string, let ext = json["thumbnail"]["extension"].string {
-            self.thumbnail = path.appending(".").appending(ext)
-        }
-        if let characters = json["characters"]["items"].array {
-            for character in characters{
-                comicCharacters.append(ComicCharacter(json: character))
-            }
-        }
+        
+        let path = json["thumbnail"]["path"].stringValue
+        let ext = json["thumbnail"]["extension"].stringValue
+        self.thumbnail = path.appending(".").appending(ext)
+        self.comicCharacters = json["characters"]["items"].arrayValue.map { ComicCharacter(json: $0) }
     }
 }
+

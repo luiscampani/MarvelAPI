@@ -19,7 +19,7 @@ class ComicsViewController: UIViewController {
                 if character.comics.count > 0 {
                     self.comics = character.comics
                 } else {
-                    self.loadAdditionalComics(forCharacterId: character.id!, offset: 0)
+                    self.loadAdditionalComics(forCharacterId: character.id, offset: 0)
                 }
             }
         }

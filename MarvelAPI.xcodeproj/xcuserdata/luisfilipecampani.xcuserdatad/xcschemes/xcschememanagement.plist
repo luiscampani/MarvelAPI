@@ -9,9 +9,33 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>teste.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>6</integer>
+		</dict>
+		<key>testeUI.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>7</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>5BAA4A321E41576100388D24</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5BAA4A3B1E41576100388D24</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>5BB9EBEA1DFEC53900039124</key>
 		<dict>
 			<key>primary</key>

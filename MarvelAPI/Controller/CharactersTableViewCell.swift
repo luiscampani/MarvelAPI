@@ -14,13 +14,12 @@ class CharactersTableViewCell: UITableViewCell {
     @IBOutlet weak var characterName: UILabel!
     @IBOutlet weak var characterImage: UIImageView!
     
-    var character: Character?{
+    var character: Character? {
         didSet{
-            if let character = self.character{
+            if let character = self.character {
                 self.characterName.text = character.name
-                if let thumbnail = character.thumbnails {
-                    self.characterImage.loadImage(thumbnail)
-                }
+                let thumbnail = character.thumbnails
+                self.characterImage.loadImage(thumbnail)
             }
         }
     }

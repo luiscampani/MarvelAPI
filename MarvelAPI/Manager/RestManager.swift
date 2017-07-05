@@ -14,8 +14,8 @@ class RestManager {
     
     static let manager: Alamofire.SessionManager = {
         let configuration = URLSessionConfiguration.default
-        configuration.timeoutIntervalForRequest = 90 // seconds
-        configuration.timeoutIntervalForResource = 90
+        configuration.timeoutIntervalForRequest = 10 // seconds
+        configuration.timeoutIntervalForResource = 10
         return Alamofire.SessionManager(configuration: configuration)
     }()
     
@@ -27,25 +27,22 @@ class RestManager {
     static func getCharacters(offset : Int,response: @escaping ([Character])->()){
         
         let getCaractersUrl = baseUrl.appending("/characters")
-        
         let timestamp = Date().description
-        
         let stringToHash = timestamp.appending(privatekey).appending(publickey)
-        
         let hashData = MD5(string: stringToHash)
-        let hash : String =  hashData!.map { String(format: "%02hhx", $0) }.joined()
+        let hash =  hashData!.map { String(format: "%02hhx", $0) }.joined()
         
-        let parameters = ["apikey":publickey,"ts":timestamp,"hash":hash,"limit":100,"offset":offset] as [String : Any]
+        let parameters = ["apikey":publickey,
+                          "ts":timestamp,
+                          "hash":hash,
+                          "limit":100,
+                          "offset":offset] as [String : Any]
         
         manager.request(getCaractersUrl, method: .get, parameters: parameters).responseJSON { (request) in
             switch request.result {
             case .success(let value):
-                let jsons = JSON(value)
-                var characters = [Character]()
-                for json in jsons["data"]["results"].array! {
-                    characters += [Character(json: json)]
-                }
-                response(characters)
+                let json = JSON(value)
+                response(json["data"]["results"].arrayValue.map { Character(json: $0) })
             case .failure(let error):
                 print(error)
             }
@@ -59,13 +56,16 @@ class RestManager {
         getCaractersComicsUrl.append("/comics")
         
         let timestamp = Date().description
-        
         let stringToHash = timestamp.appending(privatekey).appending(publickey)
-        
         let hashData = MD5(string: stringToHash)
-        let hash : String =  hashData!.map { String(format: "%02hhx", $0) }.joined()
+        let hash =  hashData!.map { String(format: "%02hhx", $0) }.joined()
         
-        let parameters = ["apikey":publickey,"ts":timestamp,"hash":hash,"offset":offset,"limit":100,"orderBy":"title"] as [String : Any]
+        let parameters = ["apikey":publickey,
+                          "ts":timestamp,
+                          "hash":hash,
+                          "offset":offset,
+                          "limit":100,
+                          "orderBy":"title"] as [String : Any]
         
         manager.request(getCaractersComicsUrl, method: .get, parameters: parameters).responseJSON { (request) in
             switch request.result {
@@ -89,13 +89,17 @@ class RestManager {
         getCaractersSeriesUrl.append("/series")
         
         let timestamp = Date().description
-        
         let stringToHash = timestamp.appending(privatekey).appending(publickey)
-        
         let hashData = MD5(string: stringToHash)
-        let hash : String =  hashData!.map { String(format: "%02hhx", $0) }.joined()
         
-        let parameters = ["apikey":publickey,"ts":timestamp,"hash":hash,"offset":offset,"limit":100,"orderBy":"title"] as [String : Any]
+        let hash = hashData!.map { String(format: "%02hhx", $0) }.joined()
+        
+        let parameters = ["apikey":publickey,
+                          "ts":timestamp,
+                          "hash":hash,
+                          "offset":offset,
+                          "limit":100,
+                          "orderBy":"title"] as [String : Any]
         
         manager.request(getCaractersSeriesUrl, method: .get, parameters: parameters).responseJSON { (request) in
             switch request.result {
@@ -111,14 +115,13 @@ class RestManager {
             }
         }
     }
-
     
     static func MD5(string: String) -> Data? {
         guard let messageData = string.data(using:String.Encoding.utf8) else { return nil }
         var digestData = Data(count: Int(CC_MD5_DIGEST_LENGTH))
         
-        _ = digestData.withUnsafeMutableBytes {digestBytes in
-            messageData.withUnsafeBytes {messageBytes in
+        _ = digestData.withUnsafeMutableBytes { digestBytes in
+            messageData.withUnsafeBytes { messageBytes in
                 CC_MD5(messageBytes, CC_LONG(messageData.count), digestBytes)
             }
         }

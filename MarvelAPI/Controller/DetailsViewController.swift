@@ -22,10 +22,9 @@ class DetailsViewController: UIViewController {
         
         if let character = self.character{
             self.characterName.text = character.name
-            if let thumbnail = character.thumbnails {
-                self.characterImage.loadImage(thumbnail)
-            }
-            if character.description != ""{
+            self.characterImage.loadImage( character.thumbnails)
+            
+            if character.description.isEmpty {
                 self.characterDescription.text = character.description
             } else {
                 self.characterDescription.text = "No description avaliable"
