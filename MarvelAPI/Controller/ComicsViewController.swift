@@ -34,12 +34,6 @@ class ComicsViewController: UIViewController {
         super.viewDidLoad()
         initFooterView()
         self.tableView.tableFooterView = UIView()
-        // Do any additional setup after loading the view.
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func loadAdditionalComics(forCharacterId id : Int, offset : Int){

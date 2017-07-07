@@ -18,17 +18,6 @@ class ComicDetailsViewController: UIViewController {
     
     var comic : Comics?
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     private func setupComic() {
         guard let comic = self.comic else { return }
         

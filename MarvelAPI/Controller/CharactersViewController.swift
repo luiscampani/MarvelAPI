@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseDatabase
 import SVProgressHUD
 
 class CharactersViewController: UIViewController {
@@ -24,12 +25,11 @@ class CharactersViewController: UIViewController {
         self.tableView.tableFooterView = UIView()
         loadCharacters()
         initFooterView()
-        // Do any additional setup after loading the view, typically from a nib.
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        tableView.reloadData()
     }
     
     func loadCharacters(){
@@ -122,6 +122,10 @@ class CharactersViewController: UIViewController {
             ).isActive = true
         
         self.tableView.tableFooterView = footerWithNoResults
+    }
+    
+    @IBAction func buttonLoginTouched(_ sender: Any) {
+        performSegue(withIdentifier: "login", sender: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

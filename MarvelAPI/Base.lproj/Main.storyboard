@@ -1,17 +1,100 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="v9m-7h-Hkw">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="v9m-7h-Hkw">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Login View Controller-->
+        <scene sceneID="95y-gE-wPg">
+            <objects>
+                <viewController id="ib1-Qk-oHM" customClass="LoginViewController" customModule="MarvelAPI" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="enc-AX-VZK"/>
+                        <viewControllerLayoutGuide type="bottom" id="eZb-Hs-3Aa"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Lsl-Lb-dWe">
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="04f-gm-Xwx">
+                                <rect key="frame" x="77" y="342" width="221" height="56"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.94000244140625" green="0.07644326239824295" blue="0.11661539226770401" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                <state key="normal" title="Conectar">
+                                    <color key="titleColor" red="0.98353684218412774" green="0.98902815968639701" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="conectarButtonTouched:" destination="ib1-Qk-oHM" eventType="touchUpInside" id="2Hp-OV-nyo"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YmK-UU-tNJ">
+                                <rect key="frame" x="44.5" y="206" width="285" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <color key="textColor" red="0.90752509715025909" green="0.074285362861903889" blue="0.11944620099469372" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Senha" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3sH-tm-fBv">
+                                <rect key="frame" x="44.5" y="272" width="285" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <color key="textColor" red="0.90752509715025909" green="0.074285362861903889" blue="0.11944620099469372" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ycf-gX-nX8">
+                                <rect key="frame" x="45" y="256" width="285" height="2"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.94000244140625" green="0.07644326239824295" blue="0.11661539226770401" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uGB-Ef-SZH">
+                                <rect key="frame" x="44" y="319" width="285" height="2"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.94000244140625" green="0.07644326239824295" blue="0.11661539226770401" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" image="MarvelLogo" translatesAutoresizingMaskIntoConstraints="NO" id="RYn-Qa-fBG">
+                                <rect key="frame" x="41" y="39" width="292" height="116"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hSZ-YJ-HY4">
+                                <rect key="frame" x="77" y="406" width="221" height="56"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.9400024414" green="0.076443262400000003" blue="0.1166153923" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                <state key="normal" title="Registrar">
+                                    <color key="titleColor" red="0.98353684220000004" green="0.98902815970000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="registrarButtonTouched:" destination="ib1-Qk-oHM" eventType="touchUpInside" id="hoG-ou-3G7"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ao finalizar o registro, você será conectado automaticamente" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ESZ-1z-OiF">
+                                <rect key="frame" x="42" y="465" width="289" height="53"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-LightItalic" family="Helvetica Neue" pointSize="13"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="textFieldEmail" destination="YmK-UU-tNJ" id="SsI-M0-SwU"/>
+                        <outlet property="textFieldSenha" destination="3sH-tm-fBv" id="DkZ-LC-OaX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sAX-1I-mjw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2133.5999999999999" y="-578.86056971514245"/>
+        </scene>
         <!--MARVEL-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -28,11 +111,11 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="charactersCell" id="f5b-Kd-ABu" customClass="CharactersTableViewCell" customModule="MarvelAPI" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="charactersCell" id="f5b-Kd-ABu" customClass="CharactersTableViewCell" customModule="MarvelAPI" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="f5b-Kd-ABu" id="d2p-WQ-P78">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="59.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1l4-Yi-U98">
@@ -48,16 +131,25 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bnd-Rw-1kM">
-                                                    <rect key="frame" x="66" y="4" width="268" height="50"/>
+                                                    <rect key="frame" x="66" y="4" width="249" height="50"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UjZ-Ab-S30">
+                                                    <rect key="frame" x="323" y="9" width="44" height="40"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" image="notfilled"/>
+                                                    <state key="selected" image="filled"/>
+                                                    <connections>
+                                                        <action selector="favoriteHero:" destination="f5b-Kd-ABu" eventType="touchUpInside" id="oqa-2L-nSy"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="1l4-Yi-U98" firstAttribute="leading" secondItem="d2p-WQ-P78" secondAttribute="leadingMargin" id="7lL-2g-jt9"/>
                                                 <constraint firstItem="1l4-Yi-U98" firstAttribute="top" secondItem="Bnd-Rw-1kM" secondAttribute="top" id="9Xb-Ih-HB8"/>
-                                                <constraint firstItem="Bnd-Rw-1kM" firstAttribute="trailing" secondItem="d2p-WQ-P78" secondAttribute="trailingMargin" id="N7x-7V-9se"/>
+                                                <constraint firstItem="Bnd-Rw-1kM" firstAttribute="trailing" secondItem="d2p-WQ-P78" secondAttribute="trailingMargin" constant="-52" id="N7x-7V-9se"/>
                                                 <constraint firstItem="1l4-Yi-U98" firstAttribute="bottom" secondItem="Bnd-Rw-1kM" secondAttribute="bottom" id="Oew-3E-LBu"/>
                                                 <constraint firstItem="1l4-Yi-U98" firstAttribute="top" secondItem="d2p-WQ-P78" secondAttribute="topMargin" constant="-4" id="aOK-Vx-eFm"/>
                                                 <constraint firstItem="1l4-Yi-U98" firstAttribute="centerY" secondItem="d2p-WQ-P78" secondAttribute="centerY" id="rbD-0f-Iqs"/>
@@ -67,6 +159,7 @@
                                         <connections>
                                             <outlet property="characterImage" destination="1l4-Yi-U98" id="ji8-1y-RUH"/>
                                             <outlet property="characterName" destination="Bnd-Rw-1kM" id="g6H-YX-YAx"/>
+                                            <outlet property="favoriteImage" destination="UjZ-Ab-S30" id="o90-Z0-dJh"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -84,10 +177,18 @@
                             <constraint firstItem="IS0-9u-ZL9" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="sDV-Es-hxw"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="MARVEL" id="joa-Dm-mhX"/>
+                    <navigationItem key="navigationItem" title="MARVEL" id="joa-Dm-mhX">
+                        <barButtonItem key="rightBarButtonItem" title="Login" style="plain" id="xf0-jt-P3r">
+                            <color key="tintColor" red="0.98353684220000004" green="0.98902815970000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="buttonLoginTouched:" destination="BYZ-38-t0r" id="fwD-lZ-ST5"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="IS0-9u-ZL9" id="BWc-ev-meE"/>
                         <segue destination="wY3-me-NAV" kind="show" identifier="characterDetail" id="y1x-LP-Urp"/>
+                        <segue destination="ib1-Qk-oHM" kind="show" identifier="login" id="EN2-uc-sYN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -686,4 +787,9 @@
             <point key="canvasLocation" x="136.80000000000001" y="138.98050974512745"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="MarvelLogo" width="1200" height="482"/>
+        <image name="filled" width="3231" height="3021"/>
+        <image name="notfilled" width="1088" height="1024"/>
+    </resources>
 </document>

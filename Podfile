@@ -10,4 +10,8 @@ target ‘MarvelAPI’ do
   pod 'SwiftyJSON'
   pod 'Kingfisher', '~> 3.0'
   pod 'SVProgressHUD'
+  pod 'Firebase/Core'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Database'
+  
 end

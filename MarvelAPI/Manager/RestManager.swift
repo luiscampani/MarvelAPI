@@ -8,6 +8,7 @@
 
 import Foundation
 import Alamofire
+import FirebaseDatabase
 import SwiftyJSON
 
 class RestManager {
@@ -18,6 +19,8 @@ class RestManager {
         configuration.timeoutIntervalForResource = 10
         return Alamofire.SessionManager(configuration: configuration)
     }()
+    
+    static let ref = Database.database().reference(withPath: "favorites")
     
     static let publickey = "03e5549ef0ebfe74bd56db04ba838534"
     static let privatekey = "ee649245c334be6a63eabd184a7ccf7556432342"
@@ -114,6 +117,25 @@ class RestManager {
                 print(error)
             }
         }
+    }
+    
+    static func favoriteHero(_ name: String) {
+        let reducedName = name.removeSpecialChars()
+        let heroItem = Favorite(name: reducedName,
+                                addedByUser: Usuario.sharedInstance.uid,
+                                completed: false)
+        let heroItemRef = self.ref.child(reducedName.lowercased())
+        
+        heroItemRef.setValue(heroItem.toAnyObject())
+    }
+    
+    static func unfavoriteHero(_ name: String) {
+        let reducedName = name.removeSpecialChars()
+        
+        let heroItem = Favorite(name: reducedName,
+                                addedByUser: Usuario.sharedInstance.uid,
+                                completed: false)
+        heroItem.ref?.removeValue()
     }
     
     static func MD5(string: String) -> Data? {

@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		2A8E2BA4E74A31AD44FC15CB /* Pods_MarvelAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3616595146B95F1F4B761E08 /* Pods_MarvelAPI.framework */; };
+		5B170CE41F0EF0F500213A00 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B170CE31F0EF0F500213A00 /* GoogleService-Info.plist */; };
+		5B170CE61F0EFBBC00213A00 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B170CE51F0EFBBC00213A00 /* LoginViewController.swift */; };
+		5B170CE81F0F019400213A00 /* Usuario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B170CE71F0F019400213A00 /* Usuario.swift */; };
+		5B170CEA1F0F138200213A00 /* Favorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B170CE91F0F138200213A00 /* Favorite.swift */; };
 		5BB9EBEF1DFEC53900039124 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB9EBEE1DFEC53900039124 /* AppDelegate.swift */; };
 		5BB9EBF41DFEC53900039124 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BB9EBF21DFEC53900039124 /* Main.storyboard */; };
 		5BB9EBF61DFEC53900039124 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BB9EBF51DFEC53900039124 /* Assets.xcassets */; };
@@ -47,6 +51,10 @@
 /* Begin PBXFileReference section */
 		3616595146B95F1F4B761E08 /* Pods_MarvelAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MarvelAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B11BCC31DFEC8DF0041A953 /* MarvelAPI-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MarvelAPI-Bridging-Header.h"; sourceTree = "<group>"; };
+		5B170CE31F0EF0F500213A00 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5B170CE51F0EFBBC00213A00 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		5B170CE71F0F019400213A00 /* Usuario.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Usuario.swift; sourceTree = "<group>"; };
+		5B170CE91F0F138200213A00 /* Favorite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Favorite.swift; path = Model/Favorite.swift; sourceTree = "<group>"; };
 		5BAA4A3D1E41576100388D24 /* IntentsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IntentsUI.framework; path = System/Library/Frameworks/IntentsUI.framework; sourceTree = SDKROOT; };
 		5BB9EBEB1DFEC53900039124 /* MarvelAPI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarvelAPI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BB9EBEE1DFEC53900039124 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -114,6 +122,7 @@
 				5BB9EC031DFEC58B00039124 /* View */,
 				5BB9EC051DFEC59C00039124 /* Controller */,
 				5BB9EBF51DFEC53900039124 /* Assets.xcassets */,
+				5B170CE31F0EF0F500213A00 /* GoogleService-Info.plist */,
 				5BB9EBFA1DFEC53900039124 /* Info.plist */,
 			);
 			path = MarvelAPI;
@@ -146,6 +155,8 @@
 				5BDF28BE1DFFB30D008EE360 /* Comics.swift */,
 				5BDF28BF1DFFB30D008EE360 /* SerieCreator.swift */,
 				5BDF28C01DFFB30D008EE360 /* Series.swift */,
+				5B170CE71F0F019400213A00 /* Usuario.swift */,
+				5B170CE91F0F138200213A00 /* Favorite.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -159,6 +170,7 @@
 				5BDF28C91DFFB335008EE360 /* ComicsTableViewCell.swift */,
 				5BDF28CA1DFFB335008EE360 /* ComicsViewController.swift */,
 				5BDF28CB1DFFB335008EE360 /* DetailsViewController.swift */,
+				5B170CE51F0EFBBC00213A00 /* LoginViewController.swift */,
 				5BDF28CC1DFFB335008EE360 /* SerieDetailsViewController.swift */,
 				5BDF28CD1DFFB335008EE360 /* SeriesTableViewCell.swift */,
 				5BDF28CE1DFFB335008EE360 /* SeriesViewController.swift */,
@@ -267,6 +279,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5BB9EBF91DFEC53900039124 /* LaunchScreen.storyboard in Resources */,
+				5B170CE41F0EF0F500213A00 /* GoogleService-Info.plist in Resources */,
 				5BB9EBF61DFEC53900039124 /* Assets.xcassets in Resources */,
 				5BB9EBF41DFEC53900039124 /* Main.storyboard in Resources */,
 			);
@@ -331,15 +344,18 @@
 				5BDF28D01DFFB335008EE360 /* CharactersTableViewCell.swift in Sources */,
 				5BDF28D11DFFB335008EE360 /* CharactersViewController.swift in Sources */,
 				5BDF28D21DFFB335008EE360 /* ComicDetailsViewController.swift in Sources */,
+				5B170CE61F0EFBBC00213A00 /* LoginViewController.swift in Sources */,
 				5BDF28D31DFFB335008EE360 /* ComicsTableViewCell.swift in Sources */,
 				5BDF28D41DFFB335008EE360 /* ComicsViewController.swift in Sources */,
 				5BDF28D51DFFB335008EE360 /* DetailsViewController.swift in Sources */,
+				5B170CE81F0F019400213A00 /* Usuario.swift in Sources */,
 				5BDF28D61DFFB335008EE360 /* SerieDetailsViewController.swift in Sources */,
 				5BDF28D71DFFB335008EE360 /* SeriesTableViewCell.swift in Sources */,
 				5BDF28D81DFFB335008EE360 /* SeriesViewController.swift in Sources */,
 				5BDF28D91DFFB335008EE360 /* WikiViewController.swift in Sources */,
 				5BDF28C11DFFB30D008EE360 /* Character.swift in Sources */,
 				5BDF28C21DFFB30D008EE360 /* ComicCharacter.swift in Sources */,
+				5B170CEA1F0F138200213A00 /* Favorite.swift in Sources */,
 				5BDF28C31DFFB30D008EE360 /* Comics.swift in Sources */,
 				5BDF28C41DFFB30D008EE360 /* SerieCreator.swift in Sources */,
 				5BDF28C51DFFB30D008EE360 /* Series.swift in Sources */,

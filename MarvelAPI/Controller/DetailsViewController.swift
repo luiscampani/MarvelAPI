@@ -32,11 +32,6 @@ class DetailsViewController: UIViewController {
         }
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     @IBAction func moreInformationTapped(_ sender: Any) {
         performSegue(withIdentifier: "wiki", sender: nil)
     }

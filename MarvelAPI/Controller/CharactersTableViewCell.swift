@@ -9,10 +9,10 @@
 import UIKit
 
 class CharactersTableViewCell: UITableViewCell {
-
     
     @IBOutlet weak var characterName: UILabel!
     @IBOutlet weak var characterImage: UIImageView!
+    @IBOutlet weak var favoriteImage: UIButton!
     
     var character: Character? {
         didSet{
@@ -20,19 +20,18 @@ class CharactersTableViewCell: UITableViewCell {
                 self.characterName.text = character.name
                 let thumbnail = character.thumbnails
                 self.characterImage.loadImage(thumbnail)
+                
+                favoriteImage.isHidden = Usuario.sharedInstance.uid.isEmpty ? true : false
             }
         }
     }
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    @IBAction func favoriteHero(_ sender: Any) {
+        if favoriteImage.isSelected {
+            RestManager.unfavoriteHero(characterName.text ?? "")
+        } else {
+            RestManager.favoriteHero(characterName.text ?? "")
+        }
+        favoriteImage.isSelected = !favoriteImage.isSelected
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
 }

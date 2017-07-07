@@ -17,3 +17,11 @@ extension UIImageView {
         
     }
 }
+
+extension String {
+    func removeSpecialChars() -> String {
+        let okayChars = Set("abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLKMNOPQRSTUVWXYZ1234567890".characters)
+        
+        return String(self.characters.filter { okayChars.contains($0) })
+    }
+}
