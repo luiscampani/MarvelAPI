@@ -1,5 +1,4 @@
 # MarvelAPI
-App criado em menos de 24h utilizando a [API pública da Marvel](http://developer.marvel.com/)
 
 Caso ocorra algum problema na execução do projeto, seguir os passos abaixo
 
@@ -27,3 +26,5 @@ Abrir o arquivo com extensão `.xcworkspace`, ao invés do `.xcodeproj`
 [SwiftyJSON](https://github.com/SwiftyJSON/SwiftyJSON)
 
 [SVProgressHUD](https://github.com/SVProgressHUD/SVProgressHUD)
+
+[Firebase](https://console.firebase.google.com/)
