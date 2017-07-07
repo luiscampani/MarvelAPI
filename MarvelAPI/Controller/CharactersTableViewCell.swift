@@ -20,7 +20,7 @@ class CharactersTableViewCell: UITableViewCell {
                 self.characterName.text = character.name
                 let thumbnail = character.thumbnails
                 self.characterImage.loadImage(thumbnail)
-                
+                self.favoriteImage.isSelected = character.selected
                 favoriteImage.isHidden = Usuario.sharedInstance.uid.isEmpty ? true : false
             }
         }
@@ -33,5 +33,6 @@ class CharactersTableViewCell: UITableViewCell {
             RestManager.favoriteHero(characterName.text ?? "")
         }
         favoriteImage.isSelected = !favoriteImage.isSelected
+        character?.selected = favoriteImage.isSelected
     }
 }

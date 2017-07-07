@@ -23,6 +23,8 @@ class Character {
     var comics = [Comics]()
     var series = [Series]()
     
+    var selected: Bool = false
+    
     init(json : JSON){
         self.id = json["id"].intValue
         self.name = json["name"].stringValue
