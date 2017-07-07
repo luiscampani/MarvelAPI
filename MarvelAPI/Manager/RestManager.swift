@@ -15,7 +15,7 @@ class RestManager {
     
     static let manager: Alamofire.SessionManager = {
         let configuration = URLSessionConfiguration.default
-        configuration.timeoutIntervalForRequest = 10 // seconds
+        configuration.timeoutIntervalForRequest = 10
         configuration.timeoutIntervalForResource = 10
         return Alamofire.SessionManager(configuration: configuration)
     }()
@@ -27,7 +27,7 @@ class RestManager {
     
     static let baseUrl = "https://gateway.marvel.com/v1/public"
     
-    static func getCharacters(offset : Int,response: @escaping ([Character])->()){
+    static func getCharacters(offset : Int,response: @escaping ([Character]?)->()){
         
         let getCaractersUrl = baseUrl.appending("/characters")
         let timestamp = Date().description
@@ -52,7 +52,7 @@ class RestManager {
         }
     }
     
-    static func getComicsFromCharacter(characterId : Int , offset : Int, response: @escaping ([Comics])->()){
+    static func getComicsFromCharacter(characterId : Int , offset : Int, response: @escaping ([Comics]?)->()){
         var getCaractersComicsUrl = baseUrl.appending("/characters")
         getCaractersComicsUrl.append("/")
         getCaractersComicsUrl.append("\(characterId)")
@@ -85,7 +85,7 @@ class RestManager {
         }
     }
     
-    static func getSeriesFromCharacter(characterId : Int , offset : Int, response: @escaping ([Series])->()){
+    static func getSeriesFromCharacter(characterId : Int , offset : Int, response: @escaping ([Series]?)->()){
         var getCaractersSeriesUrl = baseUrl.appending("/characters")
         getCaractersSeriesUrl.append("/")
         getCaractersSeriesUrl.append("\(characterId)")

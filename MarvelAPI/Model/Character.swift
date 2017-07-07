@@ -42,7 +42,6 @@ class Character {
             let type = urlObj["type"].stringValue
             let url = urlObj["url"].stringValue
             self.urls[type] = url
-            
         }
     }
 }

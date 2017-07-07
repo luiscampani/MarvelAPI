@@ -41,6 +41,11 @@ class ComicsViewController: UIViewController {
             self.isFetching = true
             SVProgressHUD.show(withStatus: "Fetching Comics...")
             RestManager.getComicsFromCharacter(characterId: id, offset: offset, response: { (comics) in
+                SVProgressHUD.dismiss()
+                guard let comics = comics else {
+                    self.showAlert(message: "Não foi possível buscar os dados", title: "Ops")
+                    return
+                }
                 for comic in comics {
                     self.comics.append(comic)
                 }
@@ -48,7 +53,6 @@ class ComicsViewController: UIViewController {
                 self.isFetching = false
                 let view = self.footerView?.viewWithTag(10) as! UIActivityIndicatorView
                 view.stopAnimating()
-                SVProgressHUD.dismiss()
                 if self.comics.count == 0 {
                     self.initFooterForNoResults()
                 }

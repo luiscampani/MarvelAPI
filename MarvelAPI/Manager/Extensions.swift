@@ -25,3 +25,16 @@ extension String {
         return String(self.characters.filter { okayChars.contains($0) })
     }
 }
+
+extension UIViewController {
+    func showAlert(message: String, title: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        let defaultAction = UIAlertAction(title: "OK", style: .cancel) { _ in
+            self.navigationController?.popViewController(animated: true)
+        }
+        alertController.addAction(defaultAction)
+        
+        self.present(alertController, animated: true, completion: nil)
+    }
+}

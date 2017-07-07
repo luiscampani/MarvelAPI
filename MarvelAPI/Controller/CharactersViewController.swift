@@ -36,6 +36,11 @@ class CharactersViewController: UIViewController {
         isFetching = true
         SVProgressHUD.show(withStatus: "Fetching Characters...")
         RestManager.getCharacters(offset: 0) { (characters) in
+            SVProgressHUD.dismiss()
+            guard let characters = characters else {
+                self.showAlert(message: "Não foi possível buscar os dados", title: "Ops")
+                return
+            }
             self.characters = characters
             self.tableView.reloadData()
             self.isFetching = false
@@ -50,6 +55,11 @@ class CharactersViewController: UIViewController {
         if !isFetching {
             self.isFetching = true
             RestManager.getCharacters(offset: offset) { (characters) in
+                SVProgressHUD.dismiss()
+                guard let characters = characters else {
+                    self.showAlert(message: "Não foi possível buscar dados adicionais", title: "Ops")
+                    return
+                }
                 self.characters.append(contentsOf: characters)
                 self.tableView.reloadData()
                 self.isFetching = false

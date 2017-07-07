@@ -13,4 +13,6 @@ class Usuario {
     
     var uid: String = ""
     var email: String = ""
+    
+    private init() { }
 }

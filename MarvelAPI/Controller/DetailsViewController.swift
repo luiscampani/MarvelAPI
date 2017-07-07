@@ -20,11 +20,11 @@ class DetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let character = self.character{
+        if let character = self.character {
             self.characterName.text = character.name
             self.characterImage.loadImage( character.thumbnails)
             
-            if character.description.isEmpty {
+            if !character.description.isEmpty {
                 self.characterDescription.text = character.description
             } else {
                 self.characterDescription.text = "No description avaliable"

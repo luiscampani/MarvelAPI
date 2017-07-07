@@ -41,6 +41,11 @@ class SeriesViewController: UIViewController {
             isFetching = true
             SVProgressHUD.show(withStatus: "Fetching Series...")
             RestManager.getSeriesFromCharacter(characterId: id, offset: offset, response: { (series) in
+                SVProgressHUD.dismiss()
+                guard let series = series else {
+                    self.showAlert(message: "Não foi possível buscar os dados", title: "Ops")
+                    return
+                }
                 for serie in series {
                     self.series.append(serie)
                 }
