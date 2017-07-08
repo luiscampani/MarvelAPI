@@ -7,8 +7,7 @@
 //
 
 import UIKit
-import Firebase
-import FirebaseAuth
+
 import SVProgressHUD
 
 class LoginViewController: UIViewController {
@@ -16,15 +15,16 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var textFieldEmail: UITextField!
     @IBOutlet weak var textFieldSenha: UITextField!
     
+    let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
     
     @IBAction func conectarButtonTouched(_ sender: Any) {
-        if textFieldEmail.text == "" || self.textFieldEmail.text == "" {
+        if textFieldEmail.text == "" || self.textFieldSenha.text == "" {
             
             //Alert to tell the user that there was an error because they didn't fill anything in the textfields because they didn't fill anything in
             
@@ -37,16 +37,12 @@ class LoginViewController: UIViewController {
             
         } else {
             SVProgressHUD.show(withStatus: "Conectando...")
-            Auth.auth().signIn(withEmail: (textFieldEmail.text ?? ""), password: textFieldSenha.text ?? "") { (user, error) in
+            RestManager.login(email: textFieldEmail.text ?? "", senha: textFieldSenha.text ?? "") { result in
                 SVProgressHUD.dismiss()
-                if error == nil {
-                    Usuario.sharedInstance.uid = user?.uid ?? ""
-                    Usuario.sharedInstance.email = user?.email ?? ""
-                    
+                if result {
                     self.navigationController?.popViewController(animated: true)
-                    
                 } else {
-                    self.showAlert(message: "Ops", title: error?.localizedDescription ?? "Erro Inesperado")
+                    self.showAlert(message: "Ops", title: "Erro Inesperado")
                 }
             }
         }
@@ -63,16 +59,18 @@ class LoginViewController: UIViewController {
             
         } else {
             SVProgressHUD.show(withStatus: "Registrando...")
-            Auth.auth().createUser(withEmail: (textFieldEmail.text ?? ""), password: (textFieldSenha.text ?? "")) { (user, error) in
+            RestManager.cadastro(email: textFieldEmail.text ?? "", senha: textFieldSenha.text ?? "") { result in
                 SVProgressHUD.dismiss()
-                if error == nil {
-                    Usuario.sharedInstance.uid = user?.uid ?? ""
-                    Usuario.sharedInstance.email = user?.email ?? ""
+                if result {
                     self.navigationController?.popViewController(animated: true)
                 } else {
-                    self.showAlert(message: "Ops", title: error?.localizedDescription ?? "Erro Inesperado")
+                    self.showAlert(message: "Ops", title: "Erro Inesperado")
                 }
             }
         }
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
 }

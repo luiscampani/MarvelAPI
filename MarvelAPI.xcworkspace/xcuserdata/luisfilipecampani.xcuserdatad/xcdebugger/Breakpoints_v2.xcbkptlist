@@ -51,5 +51,101 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MarvelAPI/Controller/CharactersTableViewCell.swift"
+            timestampString = "521162959.566323"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "favoriteHero(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MarvelAPI.CharactersTableViewCell.favoriteHero (Any) -&gt; ()"
+                  moduleName = "MarvelAPI"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/luisfilipecampani/Desktop/Projects/MarvelAPI/MarvelAPI/Controller/CharactersTableViewCell.swift"
+                  timestampString = "521162988.266351"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "220">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MarvelAPI.CharactersTableViewCell.(favoriteHero (Any) -&gt; ()).(implicit closure #1)"
+                  moduleName = "MarvelAPI"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/luisfilipecampani/Desktop/Projects/MarvelAPI/MarvelAPI/Controller/CharactersTableViewCell.swift"
+                  timestampString = "521162988.268156"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "16">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MarvelAPI/Controller/CharactersTableViewCell.swift"
+            timestampString = "521162962.401287"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "favoriteHero(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MarvelAPI.CharactersTableViewCell.favoriteHero (Any) -&gt; ()"
+                  moduleName = "MarvelAPI"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/luisfilipecampani/Desktop/Projects/MarvelAPI/MarvelAPI/Controller/CharactersTableViewCell.swift"
+                  timestampString = "521162988.271692"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "800">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MarvelAPI.CharactersTableViewCell.(favoriteHero (Any) -&gt; ()).(implicit closure #2)"
+                  moduleName = "MarvelAPI"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/luisfilipecampani/Desktop/Projects/MarvelAPI/MarvelAPI/Controller/CharactersTableViewCell.swift"
+                  timestampString = "521162988.27305"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "16">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

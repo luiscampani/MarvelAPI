@@ -8,6 +8,8 @@
 
 import Foundation
 import Alamofire
+import Firebase
+import FirebaseAuth
 import FirebaseDatabase
 import SwiftyJSON
 
@@ -15,8 +17,8 @@ class RestManager {
     
     static let manager: Alamofire.SessionManager = {
         let configuration = URLSessionConfiguration.default
-        configuration.timeoutIntervalForRequest = 10
-        configuration.timeoutIntervalForResource = 10
+        configuration.timeoutIntervalForRequest = 30
+        configuration.timeoutIntervalForResource = 30
         return Alamofire.SessionManager(configuration: configuration)
     }()
     
@@ -115,6 +117,30 @@ class RestManager {
                 response(series)
             case .failure(let error):
                 print(error)
+            }
+        }
+    }
+    
+    static func login(email: String, senha: String, response: @escaping (Bool)->()) {
+        Auth.auth().signIn(withEmail: email, password: senha) { (user, error) in
+            if error == nil {
+                Usuario.sharedInstance.uid = user?.uid ?? ""
+                Usuario.sharedInstance.email = user?.email ?? ""
+                response(true)
+            } else {
+                response(false)
+            }
+        }
+    }
+    
+    static func cadastro(email: String, senha: String, response: @escaping (Bool)->()) {
+        Auth.auth().createUser(withEmail: email, password: senha) { (user, error) in
+            if error == nil {
+                Usuario.sharedInstance.uid = user?.uid ?? ""
+                Usuario.sharedInstance.email = user?.email ?? ""
+                response(true)
+            } else {
+                response(false)
             }
         }
     }
